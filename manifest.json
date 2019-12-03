@@ -1,0 +1,36 @@
+{
+    "manifest_version" : 2,
+
+    "name": "Wikipedia mobile version",
+    "description": "Immediately redirects all requests to Wikipedia and Wikitionary pages to the mobile version.",
+    "author" : "Mark Kenny",
+    "version": "1.1",
+
+    "icons": {
+        "16": "Icons/16.png",
+        "48": "Icons/48.png",
+        "128": "Icons/128.png"
+    },
+
+    "content_scripts": [
+        {
+            "exclude_globs": [  ],
+            "exclude_matches": [  ],
+            "include_globs": [
+                "http://*.wikipedia.org/*",
+                "https://*.wikipedia.org/*",
+                "http://*.wiktionary.org/*",
+                "https://*.wiktionary.org/*"
+            ],
+            "js": [ "script.js" ],
+            "matches": [
+                "http://*.wikipedia.org/*",
+                "https://*.wikipedia.org/*",
+                "http://*.wiktionary.org/*",
+                "https://*.wiktionary.org/*"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+
+}
