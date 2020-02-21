@@ -4,7 +4,7 @@
 	"name": "Redirect to mobile site for Wikimedia pages",
 	"description": "When you visit the desktop version of a Wikipedia or Wiktionary article, you will be taken to the mobile-optimised page instead.",
 	"author" : "Mark Kenny",
-	"version": "1.2.0",
+	"version": "1.2.1",
 
 	"icons": {
 		"16": "Icons/16.png",

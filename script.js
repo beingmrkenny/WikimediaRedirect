@@ -2,18 +2,26 @@ handleRedirect();
 window.onhashchange = handleRedirect;
 
 function handleRedirect () {
-	var url = window.location;
+	let url = window.location;
 
-	if (/https?:\/\/[a-z][a-z]\.(:?wikipedia|wiktionary)\.org/.test(url.href)) {
+	let wikimediaHosts = 'wikipedia|wiktionary';
+
+	let testDesktopURLRegex = new RegExp(`https?:\/\/[a-z]+\.(:?${wikimediaHosts})\.org`),
+		matchDesktopURLRegex = new RegExp(`([a-z]+)\.(${wikimediaHosts})\.org`);
+
+	if (testDesktopURLRegex.test(url.href)) {
 		if (!url.search.includes('action=edit')) {
 			// turn: https://en.wikipedia.org/wiki/Neferefre
 			// into: https://en.m.wikipedia.org/wiki/Neferefre
-			var newUrl = url.href.replace(/(https?:\/\/)([a-z][a-z])\.(wikipedia|wiktionary)\.org/, "$1$2.m.$3.org");
-			window.location.replace(newUrl);
+			var newURL = url.href.replace(matchDesktopURLRegex, "$1.m.$2.org");
+			window.location.replace(newURL);
 		}
 	}
 
-	if (/https?:\/\/[a-z][a-z]\.m\.(:?wikipedia|wiktionary)\.org/.test(url.href)) {
+	let testMobileURLRegex = new RegExp(`https?:\/\/[a-z]+\.m\.(:?${wikimediaHosts})\.org`),
+		matchMobileURLRegex = new RegExp(`([a-z]+)\.m\.(${wikimediaHosts})\.org`);
+
+	if (testMobileURLRegex.test(url.href)) {
 		if (url.hash.includes('#/editor/')) {
 			// turn: https://en.m.wikipedia.org/wiki/Neferefre#/editor/0
 			// and:  https://en.m.wikipedia.org/w/index.php?title=Neferefre#/editor/all
@@ -21,13 +29,13 @@ function handleRedirect () {
 			let title = (url.pathname == '/w/index.php')
 				? url.search.replace(/.*title=([^&]+).*/, "$1")
 				: url.pathname.replace(/\/w(iki)\//, '');
-			let newUrl =
+			let newURL =
 				url.protocol + '//' +
-				url.hostname.replace(/([a-z][a-z])\.m\.(wikipedia|wiktionary)\.org/, "$1.$2.org") +
+				url.hostname.replace(matchMobileURLRegex, "$1.$2.org") +
 				'/w/index.php?' +
 				'title=' + title +
 				'&action=edit';
-			window.location.replace(newUrl);
+			window.location.replace(newURL);
 		}
 	}
 }
