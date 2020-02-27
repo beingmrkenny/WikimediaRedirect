@@ -1,0 +1,26 @@
+{
+  "name": "wikimediaredirect",
+  "version": "1.0.0",
+  "description": "A web extension",
+  "main": "script.js",
+  "dependencies": {},
+  "devDependencies": {
+	  "fs-extra": "",
+	  "glob": "",
+	  "gulp": "",
+	  "gulp-zip": ""
+  },
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+	"type": "git",
+	"url": "git+https://github.com/beingmrkenny/WikimediaRedirect.git"
+  },
+  "author": "Mark Kenny",
+  "license": "MIT",
+  "bugs": {
+	"url": "https://github.com/beingmrkenny/WikimediaRedirect/issues"
+  },
+  "homepage": "https://github.com/beingmrkenny/WikimediaRedirect#readme"
+}

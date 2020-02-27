@@ -1,5 +1,6 @@
-# Wikimedia Mobile Version
-Repo for the Wikimedia Mobile Version web extension
+# Redirect to mobile site for Wikimedia pages
+
+A web extension
 
 Chrome: https://chrome.google.com/webstore/detail/wikipedia-mobile-version/pbphdieomeafocdjodmhjnkjjoloiebj
 
