@@ -13,10 +13,16 @@ chrome.storage.local.get(null, result => {
 		input.checked = inputs[name];
 		delete inputs[name];
 	}
+	document.getElementById('redirect-edit-page').disabled = !document.getElementById('enabled').checked;
 });
 
 for (let input of document.querySelectorAll('.options-input')) {
 	input.addEventListener('change', function () {
-		chrome.storage.local.set({ [this.name] : this.checked });
+		chrome.storage.local.set({ [this.name] : this.checked }, () => {
+			let input = arguments[0].target;
+			if (input.name == 'enabled') {
+				document.getElementById('redirect-edit-page').disabled = !input.checked;
+			}
+		});
 	});
 }
