@@ -52,8 +52,8 @@ class URLProcessor {
 	}
 
 	isEditing () {
-		return (this.isDesktop && this.url.search.includes('action=edit'))
-		|| (this.isMobile && this.url.hash.includes('#/editor/'))
+		return (this.isDesktop && /action=(?:edit|submit)/.test(this.url.search))
+		|| (this.isMobile && this.url.hash.includes('#/editor/'));
 	}
 
 	getDesktopEditingFromMobile () {
