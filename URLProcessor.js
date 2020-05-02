@@ -16,7 +16,7 @@ class URLProcessor {
 
 	canRedirect () {
 		let canRedirect = true;
-		if (this.subdomain == 'wikitech' || this.subdomain == 'www') {
+		if (this.subdomain == 'wikitech' || this.subdomain == 'www' || this.subdomain == 'upload') {
 			canRedirect = false;
 		}
 		if (this.domain == 'wikidata') {

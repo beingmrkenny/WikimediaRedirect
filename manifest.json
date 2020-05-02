@@ -6,7 +6,7 @@
 	"description": "When you visit the desktop version of a Wikimedia page, you will be taken to the mobile-optimised page instead",
 	"author" : "Mark Kenny",
 	"homepage_url" : "https://beingmrkenny.co.uk/web-extensions/wikimedia-mobile-redirect",
-	"version": "1.3.3",
+	"version": "1.3.4",
 
 	"icons": {
 		"16": "img/16.png",
