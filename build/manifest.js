@@ -3,6 +3,12 @@
 exports.compileManifest = (arguments) => {
 
 	const args = typeof arguments == 'undefined' ? process.argv : arguments;
+
+	if (!args.includes('2') && !args.includes('3')) {
+		console.log('Need to specify which version you want: 2 or 3');
+		return;
+	}
+
 	const manifestVersion = args.includes('2') ? 2 : 3;
 	const fs = require('fs');
 	const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
